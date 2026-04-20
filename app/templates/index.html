@@ -1,0 +1,16 @@
+{%- set app_name = settings.app_name | default('Available Services') -%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ app_name }}</title>
+</head>
+<body>
+<h3>{{ app_name }}</h3>
+<ul>
+    {%- for service_id, service in settings.services.items() %}
+    <li><a href="{{ service.url }}">{{ service.name }}</a> - {{ service.description }}</li>
+    {%- endfor %}
+</ul>
+</body>
+</html>

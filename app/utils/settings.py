@@ -39,7 +39,7 @@ class Settings(BaseSettings):
                                    groups=['admin']),
             }).services
         else:
-            services = ServiceOptions.model_validate(Path(self.config_path).read_text()).services
+            services = ServiceOptions.model_validate_json(Path(self.config_path).read_text()).services
         if self.case_insensitive:
             services = {k.lower(): v for k, v in services.items()}
         return services

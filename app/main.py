@@ -11,7 +11,6 @@ if settings.absolute_static_path and Path(settings.absolute_static_path).is_dir(
     app.mount("/static", StaticFiles(directory=settings.absolute_static_path), name="static")
 templates = Jinja2Templates(directory=settings.absolute_templates_path)
 
-
 @app.get("/")
 async def root(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(
@@ -19,8 +18,8 @@ async def root(request: Request) -> HTMLResponse:
     )
 
 
-@app.get("/services/", response_model=ServiceOptions)
-async def get_service(request: Request):
+@app.get("/services", response_model=ServiceOptions)
+async def list_services(request: Request):
     return ServiceOptions(services=settings.services)
 
 

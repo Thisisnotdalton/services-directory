@@ -12,5 +12,7 @@
     <li><a href="{{ service.url }}">{{ service.name }}</a> - {{ service.description }}</li>
     {%- endfor %}
 </ul>
+<p>A JSON representation of the services is available <a href="{{ url_for('list_services') }}">here</a></p>
+<p>For more information, visit the <a href="/docs">docs</a> page.</p>
 </body>
 </html>

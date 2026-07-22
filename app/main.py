@@ -11,6 +11,7 @@ if settings.absolute_static_path and Path(settings.absolute_static_path).is_dir(
     app.mount("/static", StaticFiles(directory=settings.absolute_static_path), name="static")
 templates = Jinja2Templates(directory=settings.absolute_templates_path)
 
+@app.head("/")
 @app.get("/")
 async def root(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(

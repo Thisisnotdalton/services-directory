@@ -20,7 +20,6 @@ class Settings(BaseSettings):
     app_name: str = Field('Services', description='Name of the application.')
     root_path: str = Field('', description='Root path url for the application.')
     config_path: str = Field('', description='Path to JSON file containing the service options.')
-    is_proxied: bool = Field(False, description='Whether the application is proxied.')
     redirect_slashes: bool = Field(True,
                                    description='Whether the application should redirect requests with trailing slashes to the same URL without the trailing slash.')
     case_insensitive: bool = Field(True,

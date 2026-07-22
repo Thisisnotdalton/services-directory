@@ -11,6 +11,6 @@ COPY . /app
 # Install the application dependencies.
 WORKDIR /app
 RUN uv sync --locked --no-cache
-HEALTHCHECK --interval=1s --retries=60 CMD wget --spider -q "http://localhost:${PORT:-8000}"
+HEALTHCHECK --interval=10s --retries=60 CMD wget --spider -q "http://localhost:${PORT:-8000}"
 # Run the application.
 CMD ["sh", "-c", "uv run fastapi run --host 0.0.0.0 --port ${PORT:-8000}"]
